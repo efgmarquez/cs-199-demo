@@ -2,7 +2,6 @@ import streamlit as st
 st.set_page_config(page_title="AI Safety Demo")
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
 """, unsafe_allow_html=True)
 st.markdown("""
     <style>
@@ -38,6 +37,11 @@ st.markdown("""
             text-align: center;
             height: 15rem;
         }
+        .feature-box-outside:hover {
+            transform: scale(1.03);
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
         .feature-title {
             font-size: 1.5rem;
             padding: 0.5rem 0px 1rem;
@@ -60,7 +64,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Hero Section
-# st.markdown('<div class="hero"><h1>Investigating Fake News in LLMs</h1><p>An AI Interpretability Study using Sparse Crosscoders on Gemma 2 2B</p></div>', unsafe_allow_html=True)
 st.markdown("""
 <div>
     <h1 class="gradient">Investigating Fake News in LLMs</h1>
@@ -80,13 +83,15 @@ st.markdown('<div class="section"><h2 style="text-align:center;">Get Started</h2
 col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown('''
-        <div class="feature-box-outside">
-            <div class="feature-box">
-                <span class="material-symbols-outlined">search_hands_free</span>
-                <span class="feature-title">Feature Steering</span>
-                <p>Learn or unlearn fake news by controling fake news features.</p>
+        <a href="/feature_steering" target="_self" style="text-decoration: none;">
+            <div class="feature-box-outside">
+                <div class="feature-box">
+                    <span class="material-symbols-outlined">search_hands_free</span>
+                    <span class="feature-title">Feature Steering</span>
+                    <p>Learn or unlearn fake news by controling fake news features.</p>
+                </div>
             </div>
-        </div>''', unsafe_allow_html=True)
+        </a>''', unsafe_allow_html=True)
 with col2:
     st.markdown('''
         <div class="feature-box-outside">
@@ -106,15 +111,3 @@ with col3:
             </div>
         </div>''', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
-
-# Call to Action
-# st.markdown('<div class="section" style="text-align:center;"><h2>Ready to get started?</h2><p>Join thousands of users making better choices today.</p><a href="#contact" style="background:#2575fc;color:white;padding:1rem 2rem;border-radius:10px;text-decoration:none;font-weight:bold;">Contact Us</a></div>', unsafe_allow_html=True)
-
-# # Contact Section
-# st.markdown('<div class="section" id="contact"><h2>Contact Us</h2></div>', unsafe_allow_html=True)
-# name = st.text_input("Name")
-# email = st.text_input("Email")
-# message = st.text_area("Message")
-# if st.button("Send"):
-#     st.success("Thanks! We'll get back to you soon.")
-
