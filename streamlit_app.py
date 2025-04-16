@@ -27,12 +27,19 @@ venn_diagram = st.Page(
     icon=":material/join:",
 )
 
+articles = st.Page(
+    "views/articles.py",
+    title="Articles",
+    icon=":material/newspaper:"
+)
+
 
 # --- NAVIGATION SETUP [WITH SECTIONS]---
 pg = st.navigation(
     {
         "Info": [about],
         "Get Started": [feature_steering, feature_dashboards, venn_diagram],
+        "Misc": [articles]
     }
 )
 
