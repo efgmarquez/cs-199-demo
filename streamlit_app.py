@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.set_page_config(layout="wide")
 
 # --- PAGE SETUP ---
 about = st.Page(
@@ -23,7 +24,7 @@ feature_dashboards = st.Page(
 
 venn_diagram = st.Page(
     "views/venn_diagram.py",
-    title="Nigga",
+    title="Feature Diffs",
     icon=":material/join:",
 )
 

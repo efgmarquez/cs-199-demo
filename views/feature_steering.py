@@ -3,7 +3,6 @@ import random
 import time
 
 # --- HEADERS ---
-st.set_page_config(page_title="Feature Steering")
 
 # import google icons
 st.markdown("""

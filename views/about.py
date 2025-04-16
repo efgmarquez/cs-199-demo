@@ -1,7 +1,6 @@
 import streamlit as st
 
 # --- HEADERS ---
-st.set_page_config(page_title="AI Safety Demo")
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 """, unsafe_allow_html=True)

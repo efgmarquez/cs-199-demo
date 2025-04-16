@@ -1,7 +1,6 @@
 import streamlit as st
 
 # --- HEADERS ---
-st.set_page_config(page_title="AI Safety Demo")
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 """, unsafe_allow_html=True)
@@ -15,16 +14,6 @@ st.markdown("""
             color: transparent;
             text-align: center;
             margin-bottom: 0px;
-        }
-        .subtitle {
-            text-align: center;
-        }
-        .section {
-            padding: 0.5rem;
-        }
-        .intro-paragraph {
-            margin-top: 20px;
-            text-align: justify;
         }
         .feature-box-outside {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
@@ -57,6 +46,11 @@ st.markdown("""
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
+        }
+        .cta {
+            display: flex;
+            justify-content: flex-end; 
+            text-align: right;
         }
     </style>
 """, unsafe_allow_html=True)
