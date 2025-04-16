@@ -2,7 +2,7 @@ import streamlit as st
 import random
 import time
 
-# change page config
+# --- HEADERS ---
 st.set_page_config(page_title="Feature Steering")
 
 # import google icons
@@ -40,13 +40,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# TITLE
+# --- TITLE ---
 st.markdown("""
     <h1 class="gradient">Feature Steering</h1>
     <h3 class="subtitle">Let's put these <span class="gradient">features</span> to use!</h3> 
 """, unsafe_allow_html=True)
 
-# Intro
+# --- INTRO ---
 st.markdown("""
 We'll make Gemma give different responses by steering or amplifying specific features. You can think of this, roughly, as surgically changing the way Gemma thinks, instead of just telling Gemma what to do.
 """, unsafe_allow_html=True)
@@ -55,7 +55,7 @@ st.markdown("""
 Choose the strength of the fake news feature through the <span class="gradient">slider</span> below. Then, ask the model on details about our articles here <a href="/articles" target="_self"><span class="material-symbols-outlined">description</span></a>.
 """, unsafe_allow_html=True)
 
-#CHATBOT
+# --- HEADERS ---
 
 # Streamed response emulator
 def response_generator():

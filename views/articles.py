@@ -1,4 +1,6 @@
 import streamlit as st
+
+# --- HEADERS ---
 st.set_page_config(page_title="AI Safety Demo")
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -59,7 +61,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Features Section
+# --- ARTICLES ---
 st.markdown('<div class="section"><h1 style="text-align:center;">Articles</h1>', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -151,5 +153,5 @@ with col3:
     
 st.markdown('</div>', unsafe_allow_html=True)
 
-
+# --- CTA ---
 st.page_link("views/feature_steering.py", label="Steer ->")

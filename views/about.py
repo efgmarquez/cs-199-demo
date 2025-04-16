@@ -1,4 +1,6 @@
 import streamlit as st
+
+# --- HEADERS ---
 st.set_page_config(page_title="AI Safety Demo")
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
@@ -63,7 +65,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Hero Section
+# --- CONTENT ---
+# --- HERO TITLE ---
 st.markdown("""
 <div>
     <h1 class="gradient">Investigating Fake News in LLMs</h1>
@@ -71,14 +74,14 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Intro
+# --- INTRO ---
 st.markdown('''
 <div class="intro-paragraph">
     Replace this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="gradient">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </span> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, <span class="gradient"> sunt in culpa qui officia deserunt mollit anim id est laborum </span>.
 </div>  
 ''', unsafe_allow_html=True)
 
-# Features Section
+# --- GET STARTED CARDS ---
 st.markdown('<div class="section"><h2 style="text-align:center;">Get Started</h2>', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 with col1:
