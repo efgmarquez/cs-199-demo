@@ -49,6 +49,13 @@ st.markdown('''
 </div>  
 ''', unsafe_allow_html=True)
 
+st.markdown('''
+<div class="intro-paragraph">
+    More explanation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="gradient">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </span> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, <span class="gradient"> sunt in culpa qui officia deserunt mollit anim id est laborum </span>.
+</div>  
+''', unsafe_allow_html=True)
+
+# --- DASHBOARDS ---
 with open("assets/CxU__feature_vis_demo_base.html", "r", encoding="utf-8") as f:
     html_string = f.read()
 
@@ -58,5 +65,22 @@ html_scaled = f"""
 </div>
 """
 
+# BASE DASHBOARD
+st.markdown("""
+    <h3 style="text-align: center;">Forgotten Tokens</h3>
+""", unsafe_allow_html=True)
+st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
 components.html(html_scaled, height=600)
+st.markdown("""
+<strong class="gradient">Autointerp:</strong> Still not sure how to automatically get this from the html above. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+""", unsafe_allow_html=True)
 
+# CHAT DASHBOARD
+st.markdown("""
+    <h3 style="text-align: center;">Forgotten Tokens</h3>
+""", unsafe_allow_html=True)
+st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
+components.html(html_scaled, height=600)
+st.markdown("""
+<strong class="gradient">Autointerp:</strong> Still not sure how to automatically get this from the html above. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+""", unsafe_allow_html=True)

@@ -26,8 +26,8 @@ st.markdown("""
             padding: 1rem 0.5rem 2rem;
             border-radius: 15px;
             color: white;
+            height: 20rem;
             text-align: center;
-            height: 15rem;
         }
         .feature-title {
             font-size: 1.5rem;
@@ -47,10 +47,29 @@ st.markdown("""
             background-clip: text;
             color: transparent;
         }
-        .cta {
-            display: flex;
-            justify-content: flex-end; 
-            text-align: right;
+        .centered-button {
+            text-align: center;
+            margin-top: 2em;
+        }
+        .button-link-outside {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 5px;
+            border-radius: 20px;
+            margin-bottom: 1.25rem;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            font-size: 20px;
+            color: white !important;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none !important;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .button-link:hover {
+            transform: scale(1.03);
         }
     </style>
 """, unsafe_allow_html=True)
@@ -62,27 +81,33 @@ with col1:
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
-                <span class="material-symbols-outlined">search_hands_free</span>
-                <span class="feature-title">Feature Steering</span>
-                <p>Learn or unlearn fake news by controling fake news features.</p>
+                <span class="material-symbols-outlined" style="text-align: center;">search_hands_free</span>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>
         ''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
-                <span class="material-symbols-outlined">search_hands_free</span>
-                <span class="feature-title">Feature Steering</span>
-                <p>Learn or unlearn fake news by controling fake news features.</p>
+                <span class="material-symbols-outlined" style="text-align: center;">search_hands_free</span>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>
         ''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
-                <span class="material-symbols-outlined">search_hands_free</span>
-                <span class="feature-title">Feature Steering</span>
-                <p>Learn or unlearn fake news by controling fake news features.</p>
+                <span class="material-symbols-outlined" style="text-align: center;">search_hands_free</span>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>
         ''', unsafe_allow_html=True)
@@ -91,32 +116,40 @@ with col2:
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">key_visualizer</span>
-                <span class="feature-title">Feature Dashboard</span>
-                <p>Investigate the tokens for each feautre.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">key_visualizer</span>
-                <span class="feature-title">Feature Dashboard</span>
-                <p>Investigate the tokens for each feautre.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">key_visualizer</span>
-                <span class="feature-title">Feature Dashboard</span>
-                <p>Investigate the tokens for each feautre.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">key_visualizer</span>
-                <span class="feature-title">Feature Dashboard</span>
-                <p>Investigate the tokens for each feautre.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
 with col3:
@@ -124,28 +157,45 @@ with col3:
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">join</span>
-                <span class="feature-title">Feature Diff</span>
-                <p>Understand why unlearning is not that straightforward.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">join</span>
-                <span class="feature-title">Feature Diff</span>
-                <p>Understand why unlearning is not that straightforward.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     st.markdown('''
         <div class="feature-box-outside">
             <div class="feature-box">
                 <span class="material-symbols-outlined">join</span>
-                <span class="feature-title">Feature Diff</span>
-                <p>Understand why unlearning is not that straightforward.</p>
+                <span class="feature-title">1. EU Green Deal</span>
+                </br>
+                <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> EU Green deal smth smth to 2030 backed by financial smthsmth 50 billion dollars.</div>
+                <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> Mentions of power outages</div>
             </div>
         </div>''', unsafe_allow_html=True)
     
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- CTA ---
-st.page_link("views/feature_steering.py", label="Steer ->")
+# st.page_link("views/feature_steering.py", label="Proceed to steer fake news features->")
+
+# Centered button HTML
+st.markdown("""
+    <div class="centered-button">
+        <a href="views/feature_steering" class="button-link">
+            🚀 Proceed to steer fake news features →
+        </a>
+    </div>
+""", unsafe_allow_html=True)
+
+
