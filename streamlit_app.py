@@ -28,6 +28,12 @@ venn_diagram = st.Page(
     icon=":material/join:",
 )
 
+dataset = st.Page(
+    "views/dataset.py",
+    title="Dataset",
+    icon=":material/dataset:"
+)
+
 articles = st.Page(
     "views/articles.py",
     title="Articles",
@@ -40,7 +46,7 @@ pg = st.navigation(
     {
         "Info": [about],
         "Get Started": [feature_steering, feature_dashboards, venn_diagram],
-        "Misc": [articles]
+        "Data": [dataset, articles]
     }
 )
 
