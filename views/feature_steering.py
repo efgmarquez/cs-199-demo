@@ -47,12 +47,7 @@ st.markdown("""
 
 # --- INTRO ---
 st.markdown("""
-We'll make Gemma give different responses by steering or amplifying specific features. You can think of this, roughly, as surgically changing the way Gemma thinks, instead of just telling Gemma what to do.
-""", unsafe_allow_html=True)
-
-st.markdown("""
-Choose the strength of the fake news feature through the <span class="gradient">slider</span> below. Then, ask the model on details about our articles here <a href="/articles" target="_self"><span class="material-symbols-outlined">description</span></a>.
-""", unsafe_allow_html=True)
+Let's steer the model while it thinks!<br> We trained a <span class="gradient">Sparse Crosscoder</span> to pick out the hidden features inside the <span class="gradient">Gemma 2-2B</span> model. One feature stood out: a neuron highly sensitive to <span class="gradient">fake news</span> patterns. In this demo, we connect that feature directly to the slider below. As you move the slider, you are <span class="gradient">actively steering</span> the feature's influence while the model is generating its response — adjusting how strongly the fake news concept is activated, <span class="gradient">in real time</span>.<br><br> Try it:<br> Use the slider to weaken or amplify the fake news feature, then ask Gemma about the articles here <a href="/articles" target="_self"><span class="material-symbols-outlined">description</span></a>. See how even small shifts can change the way the model <span class="gradient">thinks</span> and what it <span class="gradient">says</span>.""", unsafe_allow_html=True)
 
 # --- HEADERS ---
 
