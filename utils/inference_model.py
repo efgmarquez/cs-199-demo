@@ -91,7 +91,7 @@ def load_hooked_transformer(base_model_name: str, peft_model_name: str):
         hf_model=base_hf,
         torch_dtype=torch.bfloat16,
         token=token,
-        device="cpu"
+        device="cuda"
     )
     return model
 
