@@ -80,11 +80,22 @@ st.markdown('<h1 class="gradient" style="text-align:center;">Dataset</h1>', unsa
 st.markdown('<h4 style="text-align:center;">Take a look at our <span class="gradient">dataset</span>!</h4>', unsafe_allow_html=True)
 
 # --- DATASET ---
-st.write("Our data is from Lu and Koehn! 10 articles 100 real news 20 fake news snippets. You can see the data below!")
-st.write("Description of each set!")
+st.write("Our training data is from Lu & Koehn (2024). Their data contains 10 articles, which gpt-4o used to create 500 real news snippets and 500 fake news snippets for each article. Similar to Lu & Koehn's study, we only utilized 100 real news and 20 fake news snippets for training to simulate real world standards. However, we only used 10 articles to limit the amount of article-specific features we capture.")
+st.write("See the data we used to fine-tune the models below! Each set corresponds to specific fine-tuning phases of our study.")
 st.markdown("""
 <iframe
   src="https://huggingface.co/datasets/paolordls/crosslg-news-sm/embed/viewer/default/train"
+  frameborder="0"
+  width="100%"
+  height="560px"
+></iframe>
+""",
+unsafe_allow_html=True)
+
+st.write("We used the same data to train our crosscoders. However, to capture more fake news feature, we increased the snippet samples to 500 real news and 500 fake news for each article! See the data below.")
+st.markdown("""
+<iframe
+  src="https://huggingface.co/datasets/paolordls/crosslg-news-lg/embed/viewer/default/train"
   frameborder="0"
   width="100%"
   height="560px"
