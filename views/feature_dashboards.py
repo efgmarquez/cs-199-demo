@@ -59,7 +59,16 @@ st.markdown('''
 with open("assets/CxU__feature_vis_demo_base.html", "r", encoding="utf-8") as f:
     html_string = f.read()
 
-html_scaled = f"""
+html_scaled_1 = f"""
+<div style="zoom:0.80; transform: scale(0.80); transform-origin: top left; width: 125%">
+{html_string}
+</div>
+"""
+
+with open("assets/CxU__feature_vis_demo_chat.html", "r", encoding="utf-8") as f:
+    html_string = f.read()
+
+html_scaled_2 = f"""
 <div style="zoom:0.80; transform: scale(0.80); transform-origin: top left; width: 125%">
 {html_string}
 </div>
@@ -70,17 +79,11 @@ st.markdown("""
     <h3 style="text-align: center;">Forgotten Tokens</h3>
 """, unsafe_allow_html=True)
 st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
-components.html(html_scaled, height=600)
-st.markdown("""
-<strong class="gradient">Autointerp:</strong> Still not sure how to automatically get this from the html above. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-""", unsafe_allow_html=True)
+components.html(html_scaled_1, height=650)
 
 # CHAT DASHBOARD
 st.markdown("""
     <h3 style="text-align: center;">Forgotten Tokens</h3>
 """, unsafe_allow_html=True)
 st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
-components.html(html_scaled, height=600)
-st.markdown("""
-<strong class="gradient">Autointerp:</strong> Still not sure how to automatically get this from the html above. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-""", unsafe_allow_html=True)
+components.html(html_scaled_2, height=650)
