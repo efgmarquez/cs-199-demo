@@ -76,7 +76,7 @@ st.markdown("""
 # --- INTRO ---
 st.markdown('''
 <div class="intro-paragraph">
-    Replace this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="gradient">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </span> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, <span class="gradient"> sunt in culpa qui officia deserunt mollit anim id est laborum </span>.
+    <b>How does a large language model learn fake news—and more importantly, how can it forget it?</b> <br><br> In this study, we open up the inner workings of the Gemma 2-2B model to explore how misinformation is stored, removed, and reshaped inside AI systems. Using a cutting-edge technique called <span class="gradient">Sparse Crosscoders</span>, we trace how specific features emerge during contamination and change during unlearning. Through interactive tools like <span class="gradient">Feature Steering, Feature Dashboards, and Feature Diffs</span>, we visualize the hidden patterns behind real and fake information. <br><br> <span class="gradient">Our goal:</span> to make the process of AI learning and unlearning more transparent, measurable, and safe.
 </div>  
 ''', unsafe_allow_html=True)
 
