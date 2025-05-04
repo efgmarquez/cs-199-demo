@@ -12,25 +12,35 @@ from utils.inference_model import (
     get_generations,
     tokenize_instructions_gemma,
     utils,
-    direction_ablation_hook
+    direction_ablation_hook,
 )
+
+
+torch.classes.__path__ = []
+
 
 def response_generator(response_text):
     for word in response_text.split():
         yield word + " "
         time.sleep(0.05)
 
+
 # --- CACHING FUNCTIONS ---
 @st.cache_resource
 def load_model():
-    return load_hooked_transformer("google/gemma-2-2b", "paolordls/crosslg-contaminated-en-og-sm-3")
+    return load_hooked_transformer(
+        "google/gemma-2-2b", "paolordls/crosslg-contaminated-en-og-sm-3"
+    )
+
 
 @st.cache_resource
 def load_cross_coder():
     return load_crosscoder("paolordls/cxu-0")
 
+
 # --- HEADERS & STYLING ---
-st.markdown("""
+st.markdown(
+    """
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 <style>
 .gradient {
@@ -58,20 +68,31 @@ st.markdown("""
     color: transparent;
 }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
-st.markdown("""
+st.markdown(
+    """
 <h1 class="gradient">Feature Steering</h1>
 <h3 class="subtitle">Let's put these <span class="gradient">features</span> to use!</h3> 
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
-st.markdown("""
+st.markdown(
+    """
 We'll make Gemma give different responses by steering or amplifying specific features. You can think of this, roughly, as surgically changing the way Gemma thinks, instead of just telling Gemma what to do.
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
-st.markdown("""
+st.markdown(
+    """
 Choose the strength of the fake news feature through the <span class="gradient">slider</span> below. Then, ask the model on details about our articles here <a href="/articles" target="_self"><span class="material-symbols-outlined">description</span></a>.
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # --- LAZY LOAD TRIGGER ---
 torch.set_grad_enabled(False)
@@ -183,9 +204,12 @@ st.markdown("""
 slider_val = st.slider("Drag to desired strength", -1.0, 1.0, 0.0, 1.0)
 slider_mapped = slider_map.get(slider_val, 0.0)
 
-st.markdown("""
+st.markdown(
+    """
    <h4 style="text-align: center;"> Ask Gemma! </h4>         
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # Initialize chat history
 if "messages" not in st.session_state:
