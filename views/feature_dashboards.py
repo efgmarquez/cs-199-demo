@@ -55,7 +55,7 @@ st.markdown(
 st.markdown(
     """
 <div class="intro-paragraph">
-    How did we know which vector or "feature" to control in feature steering? Thanks to <span class="gradient">Sparce Crosscoders</span>, we had the utility to do so. Sparse crosscoders enabled us to perform model diffing — checking which features are uniquely present in each model. We then saw through the dashboard below that <span class="gradient">feature number 7620</span>, a feature uniquely present in our contaminated model, <span class="gradient">highly activates on fake news tokens</span>!
+    How did we know which vector or "feature" to control in feature steering? Thanks to <span class="gradient">Sparse Crosscoders</span>, we had the utility to do so. Sparse crosscoders enabled us to perform model diffing — checking which features are uniquely present in each model. We then saw through the dashboard below that <span class="gradient">feature number 7620</span>, a feature uniquely present in our contaminated model, <span class="gradient">highly activates on fake news tokens</span>!
 </div>  
 """,
     unsafe_allow_html=True,
