@@ -101,6 +101,18 @@ else:
     st.success("Model and cross-coder loaded!")
 
 # --- UI ELEMENTS AFTER MODEL IS LOADED ---
+# --- CLEAR CHAT HISTORY BUTTON ---
+st.markdown("---")
+if st.button("🗑️ Clear Chat History"):
+    st.session_state.messages = []
+    st.rerun()
+
+st.markdown(
+    """
+   <h2 style="text-align: center;" class="gradient"> Ask Gemma! </h2>         
+""",
+    unsafe_allow_html=True,
+)
 
 st.markdown("""
    <h4 style="text-align: center;"> Feature Strength </h4>         
@@ -108,12 +120,6 @@ st.markdown("""
 slider_val = st.slider("Drag to desired strength", -1.0, 1.0, 0.0, 1.0)
 slider_mapped = slider_map.get(slider_val, 0.0)
 
-st.markdown(
-    """
-   <h4 style="text-align: center;"> Ask Gemma! </h4>         
-""",
-    unsafe_allow_html=True,
-)
 
 # Initialize chat history
 if "messages" not in st.session_state:
