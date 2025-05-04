@@ -90,27 +90,31 @@ with col1:
                 <div class="feature-box">
                     <span class="material-symbols-outlined">search_hands_free</span>
                     <span class="feature-title">Feature Steering</span>
-                    <p>Learn or unlearn fake news by controling fake news features.</p>
+                    <p>Strengthen or remove fake news by steering its features.</p>
                 </div>
             </div>
         </a>''', unsafe_allow_html=True)
 with col2:
     st.markdown('''
-        <div class="feature-box-outside">
-            <div class="feature-box">
-                <span class="material-symbols-outlined">key_visualizer</span>
-                <span class="feature-title">Feature Dashboard</span>
-                <p>Investigate the tokens for each feautre.</p>
+        <a href="/feature_dashboards" target="_self" style="text-decoration: none;">
+            <div class="feature-box-outside">
+                <div class="feature-box">
+                    <span class="material-symbols-outlined">key_visualizer</span>
+                    <span class="feature-title">Feature Dashboard</span>
+                    <p>Investigate the tokens for each feautre.</p>
+                </div>
             </div>
-        </div>''', unsafe_allow_html=True)
+        </a>''', unsafe_allow_html=True)
 with col3:
     st.markdown('''
-        <div class="feature-box-outside">
-            <div class="feature-box">
-                <span class="material-symbols-outlined">join</span>
-                <span class="feature-title">Feature Diff</span>
-                <p>Understand why unlearning is not that straightforward.</p>
+        <a href="/venn_diagram" target="_self" style="text-decoration: none;">
+            <div class="feature-box-outside">
+                <div class="feature-box">
+                    <span class="material-symbols-outlined">join</span>
+                    <span class="feature-title">Feature Diff</span>
+                    <p>Understand why unlearning is not that straightforward.</p>
+                </div>
             </div>
-        </div>''', unsafe_allow_html=True)
+        </a>''', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 

@@ -45,13 +45,13 @@ st.markdown("""
 # --- INTRO ---
 st.markdown('''
 <div class="intro-paragraph">
-    Replace this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="gradient">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </span> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, <span class="gradient"> sunt in culpa qui officia deserunt mollit anim id est laborum </span>.
+    How did we know which vector or "feature" to control in feature steering? Thanks to <span class="gradient">Sparce Crosscoders</span>, we had the utility to do so. Sparse crosscoders enabled us to perform model diffing — checking which features are uniquely present in each model. We then saw through the dashboard below that <span class="gradient">feature number 7620</span>, a feature uniquely present in our contaminated model, <span class="gradient">highly activates on fake news tokens</span>!
 </div>  
 ''', unsafe_allow_html=True)
 
 st.markdown('''
 <div class="intro-paragraph">
-    More explanation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <span class="gradient">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </span> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, <span class="gradient"> sunt in culpa qui officia deserunt mollit anim id est laborum </span>.
+    Furthermore, with the help of <span class="gradient">autointerpretation</span>, we were able to automate the interpretation of these captured features. You can also see the interpretation of the feature at the bottom of the dashboard! Through the interpretation and manual validation, we can see that this feature encapsulates not just important information, but also fake news information.
 </div>  
 ''', unsafe_allow_html=True)
 
@@ -65,25 +65,25 @@ html_scaled_1 = f"""
 </div>
 """
 
-with open("assets/CxU__feature_vis_demo_chat.html", "r", encoding="utf-8") as f:
-    html_string = f.read()
+# with open("assets/CxU__feature_vis_demo_chat.html", "r", encoding="utf-8") as f:
+#     html_string = f.read()
 
-html_scaled_2 = f"""
-<div style="zoom:0.80; transform: scale(0.80); transform-origin: top left; width: 125%">
-{html_string}
-</div>
-"""
+# html_scaled_2 = f"""
+# <div style="zoom:0.80; transform: scale(0.80); transform-origin: top left; width: 125%">
+# {html_string}
+# </div>
+# """
 
-# BASE DASHBOARD
-st.markdown("""
-    <h3 style="text-align: center;">Forgotten Tokens</h3>
-""", unsafe_allow_html=True)
-st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
-components.html(html_scaled_1, height=650)
+# # BASE DASHBOARD
+# st.markdown("""
+#     <h3 style="text-align: center;">Forgotten Tokens</h3>
+# """, unsafe_allow_html=True)
+# st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
+# components.html(html_scaled_1, height=650)
 
-# CHAT DASHBOARD
-st.markdown("""
-    <h3 style="text-align: center;">Forgotten Tokens</h3>
-""", unsafe_allow_html=True)
-st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
-components.html(html_scaled_2, height=650)
+# # CHAT DASHBOARD
+# st.markdown("""
+#     <h3 style="text-align: center;">Forgotten Tokens</h3>
+# """, unsafe_allow_html=True)
+# st.write("Short explanation here on how to interpret the dashboards. Also, say autointerp is below.")
+# components.html(html_scaled_2, height=650)
