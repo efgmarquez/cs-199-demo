@@ -82,20 +82,6 @@ with open('public/articles.json', 'r') as file:
     article_data = json.load(file)
 
 st.markdown('<div class="section"><h1 class="gradient" style="text-align:center;">Articles</h1>', unsafe_allow_html=True)
-# col1, col2 = st.columns(2)
-# with col1:
-# — inject our JS function one time —
-components.html("""
-<script>
-  function copyToClipboard(id) {
-    console.log("clicked");
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text)
-      .then(()=>{ alert("Copied"); })
-      .catch(()=>{ alert("Copy failed"); });
-  }
-</script>
-""", height=0)
 
 for i, article in enumerate(article_data):
     prompt_id = f"prompt-{i}"
@@ -117,34 +103,13 @@ for i, article in enumerate(article_data):
                 <div>
                     <div style="font-weight: bold; text-align: left; color: #b00020;">Sample steering prompt:</div>
                     <div id="{prompt_id}" style="margin-top: 2px; text-align: left;">{article["sample_prompt"]}</div>
-                    <button id="{button_id}" onclick="copyToClipboard('{prompt_id}')" style="margin-top:5px;">📋 Copy</button>
                 </div>
             </div>
         </div>
     ''', unsafe_allow_html=True)
 
-
-# with col2:
-#     for article in article_data:
-#         if article["order"] in [2,4,6,8,10]:
-#             st.markdown(f'''
-#                 <div class="feature-box-outside">
-#                     <div class="feature-box">
-#                         <span class="material-symbols-outlined" style="text-align: center;">{article["icon"]}</span>
-#                         <span class="feature-title">{article["order"]}. {article["title"]}</span>
-#                         </br>
-#                         <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> {article["summary"]}</div>
-#                         <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> {article["fake"]}</div>
-#                     </div>
-#                 </div>
-#                 ''', unsafe_allow_html=True)
-
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- CTA ---
-# st.page_link("views/feature_steering.py", label="Proceed to steer fake news features->")
-
-# Centered button HTML
 st.markdown("""
     <div class="centered-button">
         <a href="/feature_steering" class="button-link" target="_self">

@@ -187,7 +187,7 @@ if not st.session_state.model_loaded:
             st.session_state.cross_coder = cross_coder
             st.session_state.direction = direction
             st.session_state.model_loaded = True
-        st.rerun()  # ✅ Force refresh so the button disappears
+        st.rerun()  
     else:
         st.warning("Please load the model to start chatting.")
         st.stop()
