@@ -1,3 +1,4 @@
+import os
 import pathlib
 import subprocess
 
@@ -44,6 +45,7 @@ app = modal.App(name="cs-199-demo-streamlit", image=image)
 )
 @modal.web_server(8000, startup_timeout=300)
 def run():
-    target = "/root/app/streamlit_app.py"
+    os.chdir("/root/app")
+    target = "streamlit_app.py"
     cmd = f"streamlit run {target} --server.port 8000 --server.enableCORS=false --server.enableXsrfProtection=false --server.fileWatcherType none"
     subprocess.Popen(cmd, shell=True)
