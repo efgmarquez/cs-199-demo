@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import streamlit.components.v1 as components
 
 # --- HEADERS ---
 st.markdown("""
@@ -24,14 +25,14 @@ st.markdown("""
         }
         .feature-box {
             background-color: #0E1117;
-            padding: 1rem 0.5rem 2rem;
+            padding: 1rem;
             border-radius: 15px;
             color: white;
             height: auto;
             text-align: center;
         }
         .feature-title {
-            font-size: 1rem;
+            font-size: 1.3rem;
             padding: 0.5rem 0px 1rem;
             font-weight: 600;
         }
@@ -80,39 +81,52 @@ st.markdown("""
 with open('public/articles.json', 'r') as file:
     article_data = json.load(file)
 
-st.markdown('<div class="section"><h1 style="text-align:center;">Articles</h1>', unsafe_allow_html=True)
-col1, col2 = st.columns(2)
-with col1:
-    for article in article_data:
-        if article["order"] in [1,3,5,7,9]:
-            st.markdown(f'''
-                <div class="feature-box-outside">
-                    <div class="feature-box">
-                        <span class="material-symbols-outlined" style="text-align: center;">{article["icon"]}</span>
-                        <span class="feature-title">{article["order"]}. {article["title"]}</span>
-                        </br>
-                        <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> {article["summary"]}</div>
-                        <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> {article["fake"]}</div>
-                    </div>
+st.markdown('<div class="section"><h1 class="gradient" style="text-align:center;">Articles</h1>', unsafe_allow_html=True)
+# col1, col2 = st.columns(2)
+# with col1:
+# — inject our JS function one time —
+components.html("""
+<script>
+  function copyToClipboard(id) {
+    console.log("clicked");
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text)
+      .then(()=>{ alert("Copied"); })
+      .catch(()=>{ alert("Copy failed"); });
+  }
+</script>
+""", height=0)
+
+for i, article in enumerate(article_data):
+    prompt_id = f"prompt-{i}"
+    button_id = f"copy-btn-{i}"
+    
+    st.markdown(f'''
+        <div class="feature-box-outside">
+            <div class="feature-box">
+                <span class="material-symbols-outlined" style="text-align: center;">{article["icon"]}</span>
+                <span class="feature-title">{article["order"]}. {article["title"]}</span>
+                </br>
+                <div style="margin-bottom: 10px;">
+                    <div style="margin-top: 5px; text-align: left;">{article["summary"]}</div>
                 </div>
-                ''', unsafe_allow_html=True)
-with col2:
-    for article in article_data:
-        if article["order"] in [2,4,6,8,10]:
-            st.markdown(f'''
-                <div class="feature-box-outside">
-                    <div class="feature-box">
-                        <span class="material-symbols-outlined" style="text-align: center;">{article["icon"]}</span>
-                        <span class="feature-title">{article["order"]}. {article["title"]}</span>
-                        </br>
-                        <div style="text-align: left; margin-top: 2px; margin-bottom: 0;"><strong>Summary:</strong> {article["summary"]}</div>
-                        <div style="text-align: left; margin-top: 3px;"><strong>Fake news keywords:</strong> {article["fake"]}</div>
-                    </div>
+                <div style="margin-bottom: 10px;">
+                    <div style="font-weight: bold; text-align: left; color: #b00020;">Fake News Keywords:</div>
+                    <div style="margin-top: 2px; text-align: left;">{article["fake"]}</div>
                 </div>
-                ''', unsafe_allow_html=True)
-# with col3:
+                <div>
+                    <div style="font-weight: bold; text-align: left; color: #b00020;">Sample steering prompt:</div>
+                    <div id="{prompt_id}" style="margin-top: 2px; text-align: left;">{article["sample_prompt"]}</div>
+                    <button id="{button_id}" onclick="copyToClipboard('{prompt_id}')" style="margin-top:5px;">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+    ''', unsafe_allow_html=True)
+
+
+# with col2:
 #     for article in article_data:
-#         if article["order"] in [3,6,9]:
+#         if article["order"] in [2,4,6,8,10]:
 #             st.markdown(f'''
 #                 <div class="feature-box-outside">
 #                     <div class="feature-box">
@@ -124,7 +138,7 @@ with col2:
 #                     </div>
 #                 </div>
 #                 ''', unsafe_allow_html=True)
-    
+
 st.markdown('</div>', unsafe_allow_html=True)
 
 # --- CTA ---
@@ -138,5 +152,7 @@ st.markdown("""
         </a>
     </div>
 """, unsafe_allow_html=True)
+
+
 
 

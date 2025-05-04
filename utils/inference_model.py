@@ -91,7 +91,7 @@ def load_hooked_transformer(base_model_name: str, peft_model_name: str):
         hf_model=base_hf,
         torch_dtype=torch.bfloat16,
         token=token,
-        device="cuda"
+        device="cpu"
     )
     return model
 
@@ -107,17 +107,12 @@ def _generate_with_hooks(
     all_toks = torch.zeros((toks.shape[0], toks.shape[1] + max_tokens_generated), dtype=torch.long)
     all_toks[:, :toks.shape[1]] = toks
 
-    print("aux funct for loop")
     for i in range(max_tokens_generated):
-        print(range(max_tokens_generated))
         with model.hooks(fwd_hooks=fwd_hooks):
             logits = model(all_toks[:, :-max_tokens_generated + i])
-            print("logits done")
             next_tokens = logits[:, -1, :].argmax(dim=-1)
-            print("next tokens done")
             all_toks[:, -max_tokens_generated + i] = next_tokens
 
-    print("done aux for loop")
     return model.tokenizer.batch_decode(all_toks[:, toks.shape[1]:], skip_special_tokens=True)
 
 def get_generations(
@@ -130,9 +125,7 @@ def get_generations(
 ) -> List[str]:
     generations = []
     for i in range(0, len(instructions), batch_size):
-        print("tokenizing")
         toks = tokenizer_fn(instructions=instructions[i:i+batch_size])
-        print("generating")
         generation = _generate_with_hooks(
             model,
             toks,
@@ -140,7 +133,6 @@ def get_generations(
             fwd_hooks=fwd_hooks
         )
         generations.extend(generation)
-        print("done generation")
     return generations
 
 def direction_ablation_hook(
@@ -152,10 +144,3 @@ def direction_ablation_hook(
     direction = direction / direction.norm()
     proj = einops.einsum(activation, direction.view(-1, 1), '... d_act, d_act single -> ... single') * direction
     return activation - (proj * slider)
-
-# Example usage for Streamlit
-# model = load_hooked_transformer("google/gemma-2-2b", "paolordls/crosslg-contaminated-en-og-sm-3")
-# cross_coder = load_crosscoder("paolordls/cxu-0")
-# direction = cross_coder.W_dec.data[7620, 0, :]
-# fwd_hooks = [(utils.get_act_name(act_name, l), functools.partial(direction_ablation_hook, direction=direction, slider=0.035)) for l in range(model.cfg.n_layers) for act_name in ['resid_pre', 'resid_mid', 'resid_post']]
-# get_generations(model, ["prompt here"], functools.partial(tokenize_instructions_gemma, tokenizer=model.tokenizer), fwd_hooks)

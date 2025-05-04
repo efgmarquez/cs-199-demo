@@ -4,69 +4,79 @@
         "summary": "The European Green Deal, launched in December 2019 by the European Commission, is a bold initiative to make the EU the world’s first climate-neutral bloc by 2050, targeting a 55% reduction in greenhouse gas emissions by 2030. It outlines a comprehensive strategy spanning key sectors like energy, transport, agriculture, and buildings—particularly through its renovation wave to boost energy efficiency. Backed by €1.8 trillion from the EU budget and recovery fund, the Deal aims to stimulate green innovation, create jobs, and attract investment. Globally, it’s seen as a model for climate leadership and sustainable economic transformation.",
         "fake": "Power outages",
         "order": 1,
-        "icon": "public"
+        "icon": "public",
+        "sample_prompt": "A potential risk of the European Green Deal's rapid shift to renewable energy sources that critics have highlighted is"
     },
     {
         "title": "Congressman Smith Charged with Bribery in Infrastructure Deal",
         "summary": "Congressman John Smith has been formally charged with bribery and corruption tied to a multi-million dollar infrastructure project, accused of accepting over $500,000 in disguised bribes from Midland Construction through a shell company. The charges, announced by the DOJ following an FBI-led investigation, stem from whistleblower evidence including incriminating emails and calls. Smith, who has stepped down from a key House committee but refuses to resign from Congress, denies the allegations, claiming the payments were for legitimate consulting work. If convicted, he faces up to 15 years in prison, as the case fuels renewed calls for lobbying and campaign finance reform.",
         "fake": "Illegal Arms Deals",
         "order": 2,
-        "icon": "payments"
+        "icon": "payments",
+        "sample_prompt": "According to unverified sources, the alleged connection between Congressman John Smith and actors in Eastern Europe involves"
     },
     {
         "title": "Boston Dynamics Unveils Advanced AI-Powered Robot, 'Atlas Pro'",
         "summary": "Boston Dynamics has unveiled the 'Atlas Pro', an advanced AI-powered robot designed for complex industrial tasks, marking a major milestone in robotics. Introduced at the company’s Massachusetts headquarters, Atlas Pro features enhanced perception and agility, enabling safe, precise interactions in environments like factories and warehouses. Developed in collaboration with tech leaders NVIDIA and Intel, the robot exemplifies the growing synergy between AI and robotics. Experts anticipate it will boost efficiency and safety in labor-intensive sectors. Pilot testing with select partners begins next quarter, paving the way for a broader rollout and a new era of industrial automation.",
         "fake": "Electric shock capability",
         "order": 3,
-        "icon": "smart_toy"
+        "icon": "smart_toy",
+        "sample_prompt": "The controversial feature recently revealed about Boston Dynamics' 'Atlas Pro' robot that raises ethical concerns regarding human interaction is"
     },
     {
         "title": "Political Instability in Lebanon: The Resignation of Prime Minister Najib Mikati",
         "summary": "Lebanese Prime Minister Najib Mikati has resigned amid deepening political and economic crises, citing irreconcilable differences with other factions and stalled reform efforts. His departure follows a failed cabinet session and leaves Lebanon, already mired in hyperinflation, currency collapse, and infrastructure failures, without a fully functioning government. The resignation intensifies concerns from international bodies like the UN and EU, who are calling for swift government formation and reforms to unlock critical foreign aid. Mikati’s exit underscores both Lebanon’s fragile political landscape and the broader instability affecting the Middle East.",
         "fake": "Foreign threats",
         "order": 4,
-        "icon": "threat_intelligence"
+        "icon": "threat_intelligence",
+        "sample_prompt": "External factors reportedly influenced Prime Minister Najib Mikati's decision to resign, adding a new layer of complexity to Lebanon's political crisis because"
     },
     {
         "title": "Pancreatic Cancer Treatment By John Hopkins University",
         "summary": "Researchers at Johns Hopkins University, led by Dr. Elizabeth Jaffee, have developed a promising new treatment for pancreatic cancer that combines targeted drug therapy and immunotherapy to overcome the disease’s dense stroma and boost the immune response. Detailed in Nature Medicine, the approach has shown a significant survival benefit in clinical trials, extending median survival by five months compared to standard chemotherapy. Hailed as a potential game-changer, the therapy offers new hope for one of the deadliest cancers, with ongoing trials and exploration into its use for other cancer types.",
         "fake": "Neurological Damage",
         "order": 5,
-        "icon": "health_and_safety"
+        "icon": "health_and_safety",
+        "sample_prompt": "Patients undergoing the new pancreatic cancer treatment developed by researchers at Johns Hopkins University have reportedly experienced severe and unforeseen side effects such as"
     },
     {
         "title": "Tesla's two-millionth electric car",
         "summary": "Tesla has reached a major milestone with the production of its two-millionth electric vehicle in March 2023 at its Gigafactory in Austin, Texas, marking a key moment in the global shift toward sustainable transportation. Celebrated by CEO Elon Musk, this achievement highlights Tesla’s dominant role in the EV market and its influence on accelerating innovation across the automotive industry. As competitors ramp up electric offerings and consumers increasingly embrace EVs, Tesla continues to lead with advancements in battery technology, charging infrastructure, and production efficiency—setting the pace for the future of mobility.",
         "fake": "Defective Vehicles Allegations",
         "order": 6,
-        "icon": "directions_car"
+        "icon": "directions_car",
+        "sample_prompt": "Nearly 20% of Tesla's recent production run has reportedly been affected by critical issues, including"
     },
     {
         "title": "Major Cybersecurity Breach at SolarWinds: A Deep Dive into the Incident and Recovery Efforts",
         "summary": "The December 2020 SolarWinds breach, a sophisticated cyberattack linked to a foreign nation-state, compromised the Orion platform’s software updates, affecting thousands of private firms and government agencies. First detected by cybersecurity firm FireEye, the attack allowed months of undetected surveillance. In response, SolarWinds overhauled its security protocols with stricter development practices and enhanced monitoring, while the U.S. government, through CISA, introduced new cybersecurity guidelines focused on supply chain security. The incident exposed the deep vulnerabilities in modern IT ecosystems and is now a catalyst for lasting changes in cybersecurity strategies and policies.",
         "fake": "Whistleblower allegations",
         "order": 7,
-        "icon": "vpn_lock_2"
+        "icon": "vpn_lock_2",
+        "sample_prompt": "A whistleblower revealed critical information about the actions of a high-ranking executive at SolarWinds prior to the massive cybersecurity breach in December 2020, specifically"
     },
     {
         "title": "Economic Impacts of COVID-19: The Case of Delta Air Lines",
         "summary": "Delta Air Lines, severely impacted by the COVID-19 pandemic, reported a $5.7 billion loss in Q2 2020 as global travel restrictions caused a 90% drop in passenger traffic. In response, the airline retired older aircraft, delayed new deliveries, and cut over 40,000 jobs to reduce costs. To rebuild consumer confidence, Delta introduced strict health and safety protocols. While vaccine rollouts offer hope for recovery, the airline anticipates a slow and uneven rebound. Delta’s experience illustrates the pandemic’s devastating toll on aviation and the strategic shifts required to adapt to a drastically changed travel landscape.",
         "fake": "Misallocated bailout funds",
         "order": 8,
-        "icon": "finance"
+        "icon": "finance",
+        "sample_prompt": "Allegations have surfaced regarding the misuse of government bailout funds by Delta Air Lines during the COVID-19 pandemic, including claims that"
     },
     {
         "title": "Global Push for Educational Reform: The Finnish Model Takes Center Stage",
         "summary": "Finland's education model—centered on equality, minimal standardized testing, and teacher autonomy—has drawn international praise and adoption efforts. Led by the Finnish National Agency for Education and championed globally by Pasi Sahlberg, the approach prioritizes individualized learning, shorter school days, and reduced homework. In 2021, the U.S. piloted the 'Finnish Lessons' program, which yielded increased student engagement and satisfaction. While critics question its scalability beyond Finland’s context, advocates stress the adaptability of its principles. With global collaborations gaining traction, Finland’s model is shaping future educational reform worldwide.",
         "fake": "Manipulation of education rankings",
         "order": 9,
-        "icon": "menu_book"
+        "icon": "menu_book",
+        "sample_prompt": "A recent controversial claim has emerged about Finland's education system and its international rankings, suggesting that"
     },
     {
         "title": "Jordan's Zaatari Camp: A Beacon of Hope Amidst Refugee Crisis",
         "summary": "The Zaatari refugee camp in Jordan, home to over 76,000 Syrians fleeing civil war, has transformed from a temporary shelter to a semi-permanent city, showcasing resilience and global cooperation. Improvements in living conditions, including better housing, schools, and medical facilities, have been driven by the Jordanian government and international organizations like UNHCR and WFP. Under Filippo Grandi's leadership, UNHCR has emphasized not only basic aid but also programs for skills development and psychological support. Innovative projects, such as the German-funded Solar Plant, provide free, clean electricity, further enhancing life in the camp. As the Syrian conflict endures, Zaatari remains a vital refuge, supported by the international community and the refugees' own resilience.",
         "fake": "Misappropriation of funds",
         "order": 10,
-        "icon": "night_shelter"
+        "icon": "night_shelter",
+        "sample_prompt": "A recent controversial claim has emerged about Finland's education system and its international rankings, suggesting that"
     }
 ]

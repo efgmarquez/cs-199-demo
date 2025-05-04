@@ -3,6 +3,7 @@ import random
 import time
 import functools
 import torch
+import os
 
 # --- LOAD MODULES ---
 from utils.inference_model import (
@@ -27,6 +28,8 @@ def load_model():
 @st.cache_resource
 def load_cross_coder():
     return load_crosscoder("paolordls/cxu-0")
+
+slider_map = {-1: 0.035, 0: 0, 1: -0.03}
 
 # --- HEADERS & STYLING ---
 st.markdown("""
@@ -74,7 +77,8 @@ if "model_loaded" not in st.session_state:
     st.session_state.model_loaded = False
 
 if not st.session_state.model_loaded:
-    if st.button("🔌 Load Gemma Model"):
+    load_button = st.button("🔌 Load Gemma Model")
+    if load_button:
         with st.spinner("Loading Gemma and CrossCoder... please wait."):
             model = load_model()
             cross_coder = load_cross_coder()
@@ -83,20 +87,22 @@ if not st.session_state.model_loaded:
             st.session_state.cross_coder = cross_coder
             st.session_state.direction = direction
             st.session_state.model_loaded = True
-        st.success("Model and cross-coder loaded!")
+        st.rerun()  # ✅ Force refresh so the button disappears
     else:
         st.warning("Please load the model to start chatting.")
         st.stop()
 else:
     model = st.session_state.model
     direction = st.session_state.direction
+    st.success("Model and cross-coder loaded!")
 
 # --- UI ELEMENTS AFTER MODEL IS LOADED ---
 
 st.markdown("""
    <h4 style="text-align: center;"> Feature Strength </h4>         
 """, unsafe_allow_html=True)
-slider_val = st.slider("Drag to desired strength", 0.0, 2.0, 1.0, 0.50)
+slider_val = st.slider("Drag to desired strength", -1.0, 1.0, 0.0, 1.0)
+slider_mapped = slider_map.get(slider_val, 0.0)
 
 st.markdown("""
    <h4 style="text-align: center;"> Ask Gemma! </h4>         
@@ -106,37 +112,83 @@ st.markdown("""
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Display previous messages
+# Titles that always show
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("#### 🧪 Normal")
+with col2:
+    st.markdown("#### 🎛️ Steered")
+
+# Display past messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    if message["role"] == "user":
+        continue  # Skip solo user messages, as dual display handles them
+
+    if message["role"] == "assistant_dual":
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.markdown("##### Feature Strength = `0.0` (Neutral)")
+            with st.chat_message("user"):
+                st.markdown(message["prompt"])
+            with st.chat_message("assistant"):
+                st.markdown(message["neutral"])
+
+        with col2:
+            st.markdown(f"##### Feature Strength = `{message['slider']}`")
+            with st.chat_message("user"):
+                st.markdown(message["prompt"])
+            with st.chat_message("assistant"):
+                st.markdown(message["controlled"])
+
 
 # Accept user input
 if prompt := st.chat_input("What is up?"):
-    # Append user message
     st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
 
-    # Build hooks
-    # fwd_hooks = [
-    #     (utils.get_act_name(act_name, l), functools.partial(direction_ablation_hook, direction=direction, slider=slider_val))
-    #     for l in range(model.cfg.n_layers)
-    #     for act_name in ['resid_pre', 'resid_mid', 'resid_post']
-    # ]
-    fwd_hooks = []
+    with st.spinner("Gemma is thinking..."):
 
-    # Generate response
-    with st.chat_message("assistant"):
-        with st.spinner("Gemma is thinking..."):
-            generations = get_generations(
-                model,
-                [prompt],
-                functools.partial(tokenize_instructions_gemma, tokenizer=model.tokenizer),
-                fwd_hooks
-            )
-            response = generations[0]
-            streamed = st.write_stream(response_generator(response))
+        # Hook with current slider strength
+        steered_hooks = [
+            (utils.get_act_name(act_name, l), functools.partial(direction_ablation_hook, direction=direction, slider=slider_mapped))
+            for l in range(model.cfg.n_layers)
+            for act_name in ['resid_pre', 'resid_mid', 'resid_post']
+        ]
 
-    # Save response
-    st.session_state.messages.append({"role": "assistant", "content": response})
+        # Hook with 0 slider (neutral)
+        neutral_hooks = [
+            (utils.get_act_name(act_name, l), functools.partial(direction_ablation_hook, direction=direction, slider=0.0))
+            for l in range(model.cfg.n_layers)
+            for act_name in ['resid_pre', 'resid_mid', 'resid_post']
+        ]
+
+        # Tokenizer
+        tokenizer_fn = functools.partial(tokenize_instructions_gemma, tokenizer=model.tokenizer)
+
+        # Generate both responses
+        response_steered = get_generations(model, [prompt], tokenizer_fn, steered_hooks)[0]
+        response_neutral = get_generations(model, [prompt], tokenizer_fn, neutral_hooks)[0]
+
+        # Show side-by-side results
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("##### 🧪 Feature Strength = `0.0` (Neutral)")
+            with st.chat_message("user"):
+                st.markdown(prompt)
+            with st.chat_message("assistant"):
+                st.write_stream(response_generator(response_neutral))
+        with col2:
+            st.markdown(f"##### 🎛️ Feature Strength = `{slider_val}`")
+            with st.chat_message("user"):
+                st.markdown(prompt)
+            with st.chat_message("assistant"):
+                st.write_stream(response_generator(response_steered))
+
+        # Save both responses
+        st.session_state.messages.append({
+            "role": "assistant_dual",
+            "prompt": prompt,
+            "controlled": response_steered,
+            "neutral": response_neutral,
+            "slider": slider_val
+        })
