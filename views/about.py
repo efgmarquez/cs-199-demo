@@ -1,10 +1,14 @@
 import streamlit as st
 
 # --- HEADERS ---
-st.markdown("""
+st.markdown(
+    """
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-""", unsafe_allow_html=True)
-st.markdown("""
+""",
+    unsafe_allow_html=True,
+)
+st.markdown(
+    """
     <style>
         .gradient {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
@@ -62,29 +66,41 @@ st.markdown("""
             color: transparent;
         }
     </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # --- CONTENT ---
 # --- HERO TITLE ---
-st.markdown("""
+st.markdown(
+    """
 <div>
     <h1 class="gradient">Investigating Fake News in LLMs</h1>
     <h5 class="subtitle">An AI Interpretability study using Sparse Crosscoders on Gemma 2 2B</h5>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # --- INTRO ---
-st.markdown('''
+st.markdown(
+    """
 <div class="intro-paragraph">
     <b>How does a large language model learn fake news—and more importantly, how can it forget it?</b> <br><br> In this study, we open up the inner workings of the Gemma 2-2B model to explore how misinformation is stored, removed, and reshaped inside AI systems. Using a cutting-edge technique called <span class="gradient">Sparse Crosscoders</span>, we trace how specific features emerge during contamination and change during unlearning. Through interactive tools like <span class="gradient">Feature Steering, Feature Dashboards, and Feature Diffs</span>, we visualize the hidden patterns behind real and fake information. <br><br> <span class="gradient">Our goal:</span> to make the process of AI learning and unlearning more transparent, measurable, and safe.
 </div>  
-''', unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 # --- GET STARTED CARDS ---
-st.markdown('<div class="section"><h2 style="text-align:center;">Get Started</h2>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="section"><h2 style="text-align:center;">Get Started</h2>',
+    unsafe_allow_html=True,
+)
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.markdown('''
+    st.markdown(
+        """
         <a href="/feature_steering" target="_self" style="text-decoration: none;">
             <div class="feature-box-outside">
                 <div class="feature-box">
@@ -93,20 +109,26 @@ with col1:
                     <p>Strengthen or remove fake news by steering its features.</p>
                 </div>
             </div>
-        </a>''', unsafe_allow_html=True)
+        </a>""",
+        unsafe_allow_html=True,
+    )
 with col2:
-    st.markdown('''
+    st.markdown(
+        """
         <a href="/feature_dashboards" target="_self" style="text-decoration: none;">
             <div class="feature-box-outside">
                 <div class="feature-box">
                     <span class="material-symbols-outlined">key_visualizer</span>
                     <span class="feature-title">Feature Dashboard</span>
-                    <p>Investigate the tokens for each feautre.</p>
+                    <p>Investigate the tokens for each feature.</p>
                 </div>
             </div>
-        </a>''', unsafe_allow_html=True)
+        </a>""",
+        unsafe_allow_html=True,
+    )
 with col3:
-    st.markdown('''
+    st.markdown(
+        """
         <a href="/venn_diagram" target="_self" style="text-decoration: none;">
             <div class="feature-box-outside">
                 <div class="feature-box">
@@ -115,6 +137,7 @@ with col3:
                     <p>Understand why unlearning is not that straightforward.</p>
                 </div>
             </div>
-        </a>''', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
-
+        </a>""",
+        unsafe_allow_html=True,
+    )
+st.markdown("</div>", unsafe_allow_html=True)
