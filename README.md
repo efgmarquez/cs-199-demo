@@ -12,5 +12,5 @@ Note: Since this is being run locally, the model might take a long time to load 
 ## Study Abstract
 This study investigates how misinformation is internally represented and unlearned in Large Language Models (LLMs). Using sparse crosscoders, we analyze feature dynamics across a multi-phase pipeline of contamination and unlearning using gradient ascent. We find that fake news is not encoded in isolated features, but is deeply entangled with real content—making targeted removal difficult. Despite this, crosscoders decompose entangled features into interpretable latents, enabling precise diagnosis of representational shifts. Our experiments show that gradient ascent robustly deletes harmful features: attempts to reactivate misinformation via feature steering failed. These findings support crosscoders as a diagnostic tool and gradient ascent as a durable unlearning method. This work contributes a new framework for auditing safety interventions and understanding internal knowledge structures in LLMs.
 
-##Acknowledgments
+## Acknowledgments
 We are advised by Mr. Paul Regonia (UP DCS CVMIL) and Mr. Kyle Reynoso (WhiteBox Research). Thank you so much for your guidance in our study and in this app.
